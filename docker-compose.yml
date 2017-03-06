@@ -1,0 +1,20 @@
+version: "2"
+services:
+  owncloud:
+    image: owncloud:9.1.4
+    container_name: owncloud
+    volumes:
+     - /local/data/owncloud:/var/www/html:rw
+
+  owncloud-db:
+    image: postgres:9.6
+    container_name: owncloud-db
+    environment:
+     - POSTGRES_PASSWORD=${OWNCLOUD_DB_PASSWORD}
+    volumes:
+     - /local/data/owncloud-db:/var/lib/postgresql/data:rw
+
+networks:
+  default:
+    external:
+      name: isaac   
