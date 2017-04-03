@@ -3,12 +3,14 @@ services:
   owncloud:
     image: owncloud:9.1.4
     container_name: owncloud
+    restart: always
     volumes:
      - /local/data/owncloud:/var/www/html:rw
 
   owncloud-db:
     image: postgres:9.6
     container_name: owncloud-db
+    restart: always
     environment:
      - POSTGRES_PASSWORD=${OWNCLOUD_DB_PASSWORD}
     volumes:
