@@ -1,7 +1,7 @@
 version: "2"
 services:
   owncloud:
-    image: owncloud:9.1.4
+    image: owncloud:10.0.3
     container_name: owncloud
     restart: always
     volumes:
