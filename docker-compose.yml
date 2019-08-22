@@ -1,11 +1,13 @@
 version: "2"
 services:
   owncloud:
-    image: owncloud:10.0.3
+    image: owncloud:10.0.10
     container_name: owncloud
     restart: always
     volumes:
-     - /local/data/owncloud:/var/www/html:rw
+     - /local/data/owncloud/config:/var/www/html/config:rw
+     - /local/data/owncloud/data:/var/www/html/data:rw
+     - /local/data/owncloud/apps:/var/www/html/apps:rw
 
   owncloud-db:
     image: postgres:9.6
